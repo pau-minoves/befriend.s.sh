@@ -1,5 +1,6 @@
 #!/bin/sh
 
+REMOTEHOST=$1
 
 if test	-f ~/.ssh/identity.pub
 then
@@ -20,3 +21,10 @@ else
 fi
 
 echo Using ${SSHKEY}
+echo Connecting to ${REMOTEHOST}
+
+cat ${SSHKEY} | ssh ${REMOTEHOST} 'cat >> /tmp/sshkey.pub;
+					test -d ~/.ssh4 || mkdir ~/.ssh4;
+					cat /tmp/sshkey.pub >> ~/.ssh4/authorized_keys;
+					cat /tmp/sshkey.pub >> ~/.ssh4/authorized_keys2;
+				       	rm /tmp/sshkey.pub'
