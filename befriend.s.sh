@@ -24,7 +24,10 @@ echo Using ${SSHKEY}
 echo Connecting to ${REMOTEHOST}
 
 cat ${SSHKEY} | ssh ${REMOTEHOST} 'cat >> /tmp/sshkey.pub;
-					test -d ~/.ssh4 || mkdir ~/.ssh4;
-					cat /tmp/sshkey.pub >> ~/.ssh4/authorized_keys;
-					cat /tmp/sshkey.pub >> ~/.ssh4/authorized_keys2;
-				       	rm /tmp/sshkey.pub'
+					mkdir -p ~/.ssh;
+					cat /tmp/sshkey.pub >> ~/.ssh/authorized_keys;
+					cat /tmp/sshkey.pub >> ~/.ssh/authorized_keys2;
+					chmod 700 ~/.ssh
+					chmod 640 ~/.ssh/authorized_keys
+					chmod 640 ~/.ssh/authorized_keys2
+				       	rm /tmp/sshkey.pub' && echo Done!
