@@ -15,4 +15,4 @@ Usage (curl):
     chmod 755 befriend.s.sh
     ./befriend.s.sh user@host.i.want.to.be.friend.with
 
-Feedback on testing on diferent environments would be nice.
+Feedback and testing on diferent environments would be nice.
