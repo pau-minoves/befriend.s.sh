@@ -2,6 +2,13 @@
 
 REMOTEHOST=$1
 
+if test -z $REMOTEHOST
+then
+        echo "Usage: befriend.s.sh user@host.i.want.to.be.friend.with"
+        echo "Script will find (or create) and upload keys to host"
+        exit
+fi
+
 if test	-f ~/.ssh/identity.pub
 then
 	SSHKEY=~/.ssh/identity.pub
